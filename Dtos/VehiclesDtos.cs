@@ -53,7 +53,7 @@ public class AttributeValueDTO
 {
     public int Id { get; set; }
     public string Value { get; set; } = null!;
-    public string AttributeName { get; set; } = null!; // Including Attribute Name directly here for simplicity
+    public string AttributeName { get; set; } = null!;
 }
 
 public class VehicleAttributeValueDTO

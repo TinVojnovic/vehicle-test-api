@@ -28,7 +28,7 @@ public class VehicleMakeService
         return vehicleMake == null ? null : _mapper.Map<VehicleMakeDTO>(vehicleMake);
     }
 
-    public async Task<VehicleMake> CreateVehicleMake(VehicleMakeCreateDTO vehicleMakeDto)
+    public async Task<VehicleMakeDTO> CreateVehicleMake(VehicleMakeCreateDTO vehicleMakeDto)
     {
         var vehicleMake = _mapper.Map<VehicleMake>(vehicleMakeDto);
 
@@ -39,10 +39,10 @@ public class VehicleMakeService
             vm.Id == vehicleMake.Id
         );
 
-        return vehicleMake;
+        return _mapper.Map<VehicleMakeDTO>(createdVehicleMake);
     }
 
-    public async Task<VehicleMake> UpdateVehicleMake(int id, VehicleMakeUpdateDTO vehicleMakeDto)
+    public async Task<VehicleMakeDTO> UpdateVehicleMake(int id, VehicleMakeUpdateDTO vehicleMakeDto)
     {
         var existingVehicleMake = await _context.VehicleMakes.FirstOrDefaultAsync(vm =>
             vm.Id == id
@@ -58,13 +58,13 @@ public class VehicleMakeService
 
             await _context.SaveChangesAsync();
 
-            return existingVehicleMake;
+            return _mapper.Map<VehicleMakeDTO>(existingVehicleMake);
         }
 
         return null;
     }
 
-    public async Task DeleteVehicleMake(int id)
+    public async Task<string> DeleteVehicleMake(int id)
     {
         var vehicleMake = await _context.VehicleMakes.FirstOrDefaultAsync(vm => vm.Id == id);
 
@@ -72,6 +72,10 @@ public class VehicleMakeService
         {
             _context.VehicleMakes.Remove(vehicleMake);
             await _context.SaveChangesAsync();
+
+            return "Successfully deleted vehicle make.";
         }
+
+        return "VehicleMake with ID: " + id + " not found!";
     }
 }

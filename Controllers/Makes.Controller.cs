@@ -48,21 +48,21 @@ public static class MakesController
                     var vehicleMake = await service.UpdateVehicleMake(id, vehicleMakeDto);
 
                     if (vehicleMake == null)
-                        return Results.BadRequest("Please specify the correct user type!");
+                        return Results.BadRequest("VehicleMake with ID: " + id + " not found!");
 
                     return Results.Ok(vehicleMake);
                 }
             )
             .WithName("UpdateVehicleMake");
-            
+
         group
             .MapDelete(
                 "/{id}",
                 async (VehicleMakeService service, int id) =>
                 {
-                    await service.DeleteVehicleMake(id);
+                    string message = await service.DeleteVehicleMake(id);
 
-                    return Results.Ok("Successfully deleted VehicleMake!");
+                    return Results.Ok(message);
                 }
             )
             .WithName("DeleteVehicleMake");
