@@ -1,4 +1,5 @@
 using AutoMapper;
+using CoachingApp.Api.Endpoints;
 using Microsoft.EntityFrameworkCore;
 using Ninject;
 using Ninject.Web.AspNetCore;
@@ -14,8 +15,12 @@ builder.Services.AddDbContext<VehiclesAppContext>(options =>
 
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
+builder.Services.AddScoped<VehicleMakeService>();
+
+builder.Services.AddControllers();
+
 var app = builder.Build();
 
-app.MapGet("/", () => "Hello World!");
+app.MapVehicleEndpoints();
 
 app.Run();

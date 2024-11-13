@@ -8,6 +8,10 @@ public class MappingProfile : Profile
     {
         CreateMap<VehicleMake, VehicleMakeDTO>();
 
+        CreateMap<VehicleMakeCreateDTO, VehicleMake>();
+        
+        CreateMap<VehicleMakeUpdateDTO, VehicleMake>();
+
         CreateMap<VehicleModel, VehicleModelDTO>();
 
         CreateMap<Vehicle, VehicleDTO>();
