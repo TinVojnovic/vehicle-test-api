@@ -9,6 +9,17 @@ public class VehicleMakeDTO
     public string Abrv { get; set; } = null!;
 }
 
+public class VehicleMakeCreateDTO
+{
+    public string Name { get; set; } = null!;
+    public string Abrv { get; set; } = null!;
+}
+public class VehicleMakeUpdateDTO
+{
+    public string? Name { get; set; }
+    public string? Abrv { get; set; }
+}
+
 public class VehicleModelDTO
 {
     public int Id { get; set; }
@@ -21,7 +32,8 @@ public class VehicleDTO
 {
     public int Id { get; set; }
     public VehicleModelDTO Model { get; set; } = null!;
-    public List<VehicleAttributeDTO> VehicleAttributes { get; set; } = new List<VehicleAttributeDTO>();
+    public List<VehicleAttributeDTO> VehicleAttributes { get; set; } =
+        new List<VehicleAttributeDTO>();
 }
 
 public class AttributeDTO
@@ -33,7 +45,8 @@ public class VehicleAttributeDTO
 {
     public int Id { get; set; }
     public AttributeDTO Attribute { get; set; } = null!;
-    public List<VehicleAttributeValueDTO> VehicleAttributeValues { get; set; } = new List<VehicleAttributeValueDTO>();
+    public List<VehicleAttributeValueDTO> VehicleAttributeValues { get; set; } =
+        new List<VehicleAttributeValueDTO>();
 }
 
 public class AttributeValueDTO
