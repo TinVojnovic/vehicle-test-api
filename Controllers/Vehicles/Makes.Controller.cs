@@ -43,10 +43,8 @@ public static class MakesController
                 "/",
                 async (GeneralService<VehicleMake> service, VehicleMakeCreateDTO vehicleMakeDto) =>
                 {
-                    var vehicleMake = await service.CreateAsync<
-                        VehicleMakeCreateDTO,
-                        VehicleMakeDTO
-                    >(vehicleMakeDto);
+                    var vehicleMake = await service.CreateAsync<VehicleMakeCreateDTO, VehicleMakeDTO>(vehicleMakeDto);
+                    
                     return vehicleMake;
                 }
             )
@@ -55,17 +53,9 @@ public static class MakesController
         //UPDATE VEHICLE MAKE
         group
             .MapPut(
-                "/{id}",
-                async (
-                    GeneralService<VehicleMake> service,
-                    VehicleMakeUpdateDTO vehicleMakeDto,
-                    int id
-                ) =>
+                "/{id}", async (GeneralService<VehicleMake> service, VehicleMakeUpdateDTO vehicleMakeDto, int id) =>
                 {
-                    var vehicleMake = await service.UpdateAsync<
-                        VehicleMakeUpdateDTO,
-                        VehicleMakeDTO
-                    >(id, vehicleMakeDto);
+                    var vehicleMake = await service.UpdateAsync<VehicleMakeUpdateDTO, VehicleMakeDTO>(id, vehicleMakeDto);
 
                     if (vehicleMake == null)
                         return Results.BadRequest("VehicleMake with ID: " + id + " not found!");

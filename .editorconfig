@@ -1,0 +1,15 @@
+# top-most EditorConfig file
+root = true
+
+[*.cs]
+# Indentation and spacing
+indent_style = space
+indent_size = 4
+
+# Naming conventions
+dotnet_naming_rule.private_fields_underscore_style.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore_style.style = prefix_underscore
+
+# Code style
+csharp_prefer_braces = true
+csharp_style_var_elsewhere = true:suggestion
