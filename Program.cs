@@ -16,11 +16,12 @@ builder.Services.AddDbContext<VehiclesAppContext>(options =>
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddScoped<VehicleMakeService>();
+builder.Services.AddScoped(typeof(GeneralService<>));
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.MapVehicleEndpoints();
+app.MapVehicleMakesEndpoints();
 
 app.Run();
