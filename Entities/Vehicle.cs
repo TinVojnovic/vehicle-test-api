@@ -14,6 +14,7 @@ public class VehicleModel
     public int Id { get; set; }
     public required string Name { get; set; }
     public required string Abrv { get; set; }
+    public int VehicleMakeId { get; set; }
     public required VehicleMake VehicleMake { get; set; }
 }
 

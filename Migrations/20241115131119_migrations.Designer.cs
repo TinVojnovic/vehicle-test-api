@@ -11,7 +11,7 @@ using VehiclesApp.Api.Data;
 namespace vehicles_test_app.Migrations
 {
     [DbContext(typeof(VehiclesAppContext))]
-    [Migration("20241112105558_migrations")]
+    [Migration("20241115131119_migrations")]
     partial class migrations
     {
         /// <inheritdoc />
@@ -19,7 +19,7 @@ namespace vehicles_test_app.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "9.0.0-rc.2.24474.1")
+                .HasAnnotation("ProductVersion", "9.0.0")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
