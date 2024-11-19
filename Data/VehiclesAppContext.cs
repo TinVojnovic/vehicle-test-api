@@ -17,6 +17,10 @@ public class VehiclesAppContext : DbContext
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        modelBuilder.Entity<VehicleModel>()
+        .Navigation(vm => vm.VehicleMake)
+        .AutoInclude();
+        
         //  VehicleAttribute <-> AttributeValue JOIN TABLE CONFIG
         modelBuilder
             .Entity<VehicleAttributeValue>()

@@ -23,5 +23,6 @@ builder.Services.AddControllers();
 var app = builder.Build();
 
 app.MapVehicleMakesEndpoints();
+app.MapVehicleModelsEndpoints();
 
 app.Run();

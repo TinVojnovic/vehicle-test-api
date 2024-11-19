@@ -32,6 +32,7 @@ public class GeneralService<TEntity> where TEntity : class
         var entity = _mapper.Map<TEntity>(dto);
         _dbSet.Add(entity);
         await _context.SaveChangesAsync();
+
         return _mapper.Map<TDto>(entity);
     }
 
